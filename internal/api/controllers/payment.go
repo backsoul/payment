@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"github.com/backsoul/payment/pkg/types"
 	"github.com/backsoul/payment/pkg/utils"
 	"github.com/gofiber/fiber/v2"
 	gonanoid "github.com/matoous/go-nanoid/v2"
@@ -8,10 +9,6 @@ import (
 	"github.com/stripe/stripe-go/paymentintent"
 	"github.com/stripe/stripe-go/paymentmethod"
 )
-
-type Payload struct {
-	Token string `json:"token" xml:"token" form:"token"`
-}
 
 func CreateIdPayment(c *fiber.Ctx) error {
 	id, err := gonanoid.New()
@@ -28,7 +25,7 @@ func CreateIdPayment(c *fiber.Ctx) error {
 }
 
 func CreateIntentPayment(ctx *fiber.Ctx) error {
-	var payload Payload
+	var payload types.Payload
 
 	if err := ctx.BodyParser(&payload); err != nil {
 		ctx.JSON(fiber.Map{
