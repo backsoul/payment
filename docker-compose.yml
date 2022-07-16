@@ -1,0 +1,58 @@
+version: '3.5'
+
+
+services:
+  payment:
+    container_name: payment
+    build:
+      context: .
+      target: 'payment'
+    volumes:
+      - .:/app
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    ports:
+     - 3000
+    environment:
+      NODE_ENV: production
+      TZ: America/Bogota
+      VIRTUAL_HOST: payment.backsoul.xyz
+      VIRTUAL_PORT: 3000
+      LETSENCRYPT_HOST: payment.backsoul.xyz
+      LETSENCRYPT_EMAIL: danielsarmientoenterprise@gmail.com
+    networks:
+      - web
+
+  # rabbitmq:
+  #   restart: always
+  #   build: ./rabbitmq
+  #   hostname: rabbitmq
+  #   ports:
+  #    - "5672:5672"
+  #    - "15672:15672"
+  #   hostname: rabbitmq
+
+  # mysql:
+  #   image: mysql:5.5
+  #   ports:
+  #     - 3333:3306
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=password
+  #     - MYSQL_DATABASE=payment
+  #     - MYSQL_ROOT_USER=admin
+  #     - MYSQL_PASSWORD=password
+
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
+  #   ports:
+  #     - 8030:80
+  #   environment:
+  #     - PMA_HOST=mysql
+  #     - UPLOAD_LIMIT=300M
+  #   depends_on:
+  #     - mysql
+
+networks:
+  web:
+    external: true
+# volumes:
+#   mysql_data_db:
