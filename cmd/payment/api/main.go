@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/backsoul/payment/internal/api/routes"
-	"github.com/backsoul/payment/pkg/services"
+	"github.com/SenderAPI/mammon/internal/api/routes"
+	"github.com/SenderAPI/mammon/pkg/services"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/stripe/stripe-go"

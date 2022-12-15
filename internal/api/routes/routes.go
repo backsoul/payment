@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/backsoul/payment/internal/api/controllers"
+	"github.com/SenderAPI/mammon/internal/api/controllers"
 	"github.com/gofiber/fiber/v2"
 )
 

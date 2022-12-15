@@ -1,4 +1,4 @@
-module github.com/backsoul/payment
+module github.com/SenderAPI/mammon
 
 go 1.18
 

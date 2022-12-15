@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/backsoul/payment/pkg/types"
-	"github.com/backsoul/payment/pkg/utils"
+	"github.com/SenderAPI/mammon/pkg/types"
+	"github.com/SenderAPI/mammon/pkg/utils"
 	"github.com/gofiber/fiber/v2"
 	gonanoid "github.com/matoous/go-nanoid/v2"
 	"github.com/stripe/stripe-go"
